@@ -16,7 +16,7 @@ export default {
       const seralizeProducts = products.map(product => {
         return {
           ...product,
-          image_url: `http://192.168.1.70:3333/uploads/${product.image}`
+          image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
         }
       })
       return response.json(seralizeProducts)
@@ -27,7 +27,7 @@ export default {
       const seralizeProducts = products.map(product => {
         return {
           ...product,
-          image_url: `http://192.168.1.70:3333/uploads/${product.image}`
+          image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
         }
       })
       return response.json(seralizeProducts)
@@ -96,7 +96,7 @@ export default {
 
     const seralizeProduct = {
       ...product,
-      image_url: `http://192.168.1.70:3333/uploads/${product.image}`,
+      image_url: `https://barshop.herokuapp.com/uploads/${product.image}`,
     };
 
     return response.json(seralizeProduct)

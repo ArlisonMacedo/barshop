@@ -86,14 +86,14 @@ exports.default = {
                     case 1:
                         products = _a.sent();
                         seralizeProducts = products.map(function (product) {
-                            return __assign(__assign({}, product), { image_url: "http://192.168.1.70:3333/uploads/" + product.image });
+                            return __assign(__assign({}, product), { image_url: "https://barshop.herokuapp.com/uploads/" + product.image });
                         });
                         return [2 /*return*/, response.json(seralizeProducts)];
                     case 2: return [4 /*yield*/, connection_1.default('products').select('*')];
                     case 3:
                         products = _a.sent();
                         seralizeProducts = products.map(function (product) {
-                            return __assign(__assign({}, product), { image_url: "http://192.168.1.70:3333/uploads/" + product.image });
+                            return __assign(__assign({}, product), { image_url: "https://barshop.herokuapp.com/uploads/" + product.image });
                         });
                         return [2 /*return*/, response.json(seralizeProducts)];
                 }
@@ -162,7 +162,7 @@ exports.default = {
                                 .select('*')];
                     case 1:
                         product = _a.sent();
-                        seralizeProduct = __assign(__assign({}, product), { image_url: "http://192.168.1.70:3333/uploads/" + product.image });
+                        seralizeProduct = __assign(__assign({}, product), { image_url: "https://barshop.herokuapp.com/uploads/" + product.image });
                         return [2 /*return*/, response.json(seralizeProduct)];
                 }
             });
