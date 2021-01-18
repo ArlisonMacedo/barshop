@@ -11,12 +11,13 @@ export default {
 
     if (category) {
       const products = await connection('products')
-        .where('category','like',`%${category}%`)
+        .whereRaw('LOWER(category) like ?',[`%${category}%`])
         .select('*')
       const seralizeProducts = products.map(product => {
         return {
           ...product,
           image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
+          // image_url: `https://localhost:3333/uploads/${product.image}`
         }
       })
       return response.json(seralizeProducts)
@@ -28,6 +29,7 @@ export default {
         return {
           ...product,
           image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
+          // image_url: `https://localhost:3333/uploads/${product.image}`
         }
       })
       return response.json(seralizeProducts)
@@ -97,6 +99,7 @@ export default {
     const seralizeProduct = {
       ...product,
       image_url: `https://barshop.herokuapp.com/uploads/${product.image}`,
+      // image_url: `https://localhost:3333/uploads/${product.image}`
     };
 
     return response.json(seralizeProduct)
