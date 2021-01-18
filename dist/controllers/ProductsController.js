@@ -96,9 +96,7 @@ exports.default = {
                     case 3:
                         products = _a.sent();
                         seralizeProducts = products.map(function (product) {
-                            return __assign(__assign({}, product), { 
-                                // image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
-                                image_url: "https://localhost:3333/uploads/" + product.image });
+                            return __assign(__assign({}, product), { image_url: "https://barshop.herokuapp.com/uploads/" + product.image });
                         });
                         return [2 /*return*/, response.json(seralizeProducts)];
                 }
