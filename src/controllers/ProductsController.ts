@@ -18,6 +18,7 @@ export default {
         return {
           ...product,
           image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
+
           // image_url: `https://localhost:3333/uploads/${product.image}`
         }
       })
@@ -32,6 +33,7 @@ export default {
         return {
           ...product,
           image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
+
           // image_url: `https://localhost:3333/uploads/${product.image}`
         }
       })
@@ -102,6 +104,7 @@ export default {
     const seralizeProduct = {
       ...product,
       image_url: `https://barshop.herokuapp.com/uploads/${product.image}`,
+      
       // image_url: `https://localhost:3333/uploads/${product.image}`
     };
 
