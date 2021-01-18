@@ -12,6 +12,7 @@ export default {
     if (category) {
       const products = await connection('products')
         .whereRaw('LOWER(category) like ?',[`%${category}%`])
+        .orderBy('created_at', 'desc')
         .select('*')
       const seralizeProducts = products.map(product => {
         return {
@@ -24,7 +25,9 @@ export default {
     }
     else{
 
-      const products = await connection('products').select('*')
+      const products = await connection('products')
+        .orderBy('created_at','desc')
+        .select('*')
       const seralizeProducts = products.map(product => {
         return {
           ...product,

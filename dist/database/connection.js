@@ -17,5 +17,15 @@ var connection = knex_1.default({
     migrations: {
         directory: path_1.default.join(__dirname, "database", "migrations")
     }
+    // connection: {
+    //   host: 'localhost',
+    //   database: 'barshop',
+    //   user: 'postgres',
+    //   password: 'root',
+    //   port: 5433
+    // },
+    // migrations: {
+    //   directory: path.join(__dirname, "database", "migrations")
+    // }
 });
 exports.default = connection;

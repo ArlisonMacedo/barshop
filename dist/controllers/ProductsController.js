@@ -25,7 +25,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -81,7 +81,8 @@ exports.default = {
                         category = request.query.category;
                         if (!category) return [3 /*break*/, 2];
                         return [4 /*yield*/, connection_1.default('products')
-                                .where('category', 'like', "%" + category + "%")
+                                .whereRaw('LOWER(category) like ?', ["%" + category + "%"])
+                                .orderBy('created_at', 'desc')
                                 .select('*')];
                     case 1:
                         products = _a.sent();
@@ -89,11 +90,15 @@ exports.default = {
                             return __assign(__assign({}, product), { image_url: "https://barshop.herokuapp.com/uploads/" + product.image });
                         });
                         return [2 /*return*/, response.json(seralizeProducts)];
-                    case 2: return [4 /*yield*/, connection_1.default('products').select('*')];
+                    case 2: return [4 /*yield*/, connection_1.default('products')
+                            .orderBy('created_at', 'desc')
+                            .select('*')];
                     case 3:
                         products = _a.sent();
                         seralizeProducts = products.map(function (product) {
-                            return __assign(__assign({}, product), { image_url: "https://barshop.herokuapp.com/uploads/" + product.image });
+                            return __assign(__assign({}, product), { 
+                                // image_url: `https://barshop.herokuapp.com/uploads/${product.image}`
+                                image_url: "https://localhost:3333/uploads/" + product.image });
                         });
                         return [2 /*return*/, response.json(seralizeProducts)];
                 }
