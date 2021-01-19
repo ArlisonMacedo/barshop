@@ -45,7 +45,7 @@ function up(knex) {
                     table.string('name').notNullable();
                     table.string('image').notNullable();
                     table.string('price').notNullable();
-                    table.string('description').notNullable();
+                    table.text('description').notNullable();
                     table.string('whatsapp').notNullable();
                     table.string('address').notNullable();
                     table.string('number').notNullable();
